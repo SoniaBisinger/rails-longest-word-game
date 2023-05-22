@@ -1,0 +1,24 @@
+<div>
+    <div class="row">
+    <div class="col d-flex">
+<% @letters.each do |letter| %>
+        <li class="list-unstyled mx-2 mb-2"><%= letter %></li>
+    <% end %>
+    </div>
+    </div>
+    </div>
+
+
+<form action="/score" method="POST" data-turbo="false">
+
+    <label for="exampleWordToFill" class="form-label mb-2 ">What is the longest word you can find?</label>
+    <div class="row">
+        <div class="col-6">
+            <input type="text" class="form-control" id="exampleWordToFill">
+        </div>
+        <div class="col">
+            <button type="submit" class="btn border">Play</button>
+        </div>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    </div>
+</form>
